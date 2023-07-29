@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Timer Extension</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-2">
+    <div class="card text-center" style="width: 18rem;">
+      <p class="card-header h4">
+        Timer
+      </p>
+      <div class="alert alert-info" role="alert" id="countdown">Count down:</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <label class="label" for="hour">Hour:</label>
+            <select class="form-select" id="hour">
+              <option value="0">00</option>
+              <option value="1">01</option>
+              <option value="2">02</option>
+              <option value="3">03</option>
+              <option value="4">04</option>
+              <option value="5">05</option>
+              <option value="6">06</option>
+              <option value="7">07</option>
+              <!-- Add more options for hours (up to 23) -->
+            </select>
+          </div>
+          <div class="col">
+            <label for="minute">Minute:</label>
+            <select class="form-select" id="minute">
+              <option value="0">00</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <!-- Add more options for minutes (0, 15, 30, 45, etc.) -->
+            </select>
+          </div>
+          <div class="col">
+            <label for="second">Second:</label>
+            <select class="form-select" id="second">
+              <option value="5">05</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <!-- Add more options for seconds (0, 5, 10, 15, etc.) -->
+            </select>
+          </div>
+          <div class="col">
+            <label for="sound">Alarm sound:</label>
+            <select class="form-select" id="sound">
+              <option value="audio1">Audio-1</option>
+              <option value="audio2">Audio-2</option>
+              <option value="audio3">Audio-3</option>
+              <!-- Add more options for alarm sounds -->
+            </select>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button type="button" class="btn btn-primary" id="startButton">Start Timer</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
