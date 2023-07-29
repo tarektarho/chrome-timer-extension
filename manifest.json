@@ -6,12 +6,33 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["alarms"],
+  "permissions": ["alarms", "notifications"],
+
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/*",
+        "https://developer.chrome.com/docs/webstore/*"
+      ]
+    }
+  ],
 
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
-  }
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  }, 
+
+  "web_accessible_resources": [
+    {
+      "resources": [ "audio/audio1.mp3, audio/audio2.mp3, audio/audio3.mp3" ],
+      "matches": [ "https://web-accessible-resources-1.glitch.me/*" ]
+    }
+  ]
 }

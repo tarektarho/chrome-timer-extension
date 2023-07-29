@@ -16,6 +16,12 @@ const startButton = document.getElementById("startButton")
  */
 const soundDropdown = document.getElementById("sound")
 
+const audioList = {
+  audio1: "./audio/audio1.mp3",
+  audio2: "./audio/audio2.mp3",
+  audio3: "./audio/audio3.mp3",
+}
+
 /**
  * Represents the Alarm class used to play audio.
  */
@@ -25,12 +31,7 @@ class Alarm {
    * @param {string} sound - The selected sound for the alarm.
    */
   constructor(sound) {
-    this.audioList = {
-      audio1: "./audio/audio1.mp3",
-      audio2: "./audio/audio2.mp3",
-      audio3: "./audio/audio3.mp3",
-    }
-    this.audio = new Audio(this.audioList[sound])
+    this.audio = new Audio(audioList[sound])
   }
 
   /**
@@ -155,6 +156,9 @@ startButton.addEventListener("click", () => {
   if (timer.isRunning) {
     startButton.setAttribute("disabled", "")
   }
+
+  chrome.runtime.sendMessage({ action: "startTimer", time: timer.totalSeconds, audio: audioList[soundDropdown.value] })
+
   // timer.stop(); // Stop the timer
   // timer.reset(); // Reset the timer
 })
